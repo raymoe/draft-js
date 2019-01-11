@@ -288,6 +288,12 @@ class DraftJsPlaygroundContainer extends Component {
                 theme={theme}
                 data={editorState.getCurrentContent()}
               />
+
+              <JSONTree
+                  shouldExpandNode={this.shouldExpandNode}
+                  theme={theme}
+                  data={convertToRaw(editorState.getCurrentContent())}
+              />
             </div>
           </PanelGroup>
         </div>

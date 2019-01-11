@@ -14,6 +14,8 @@ import NestedRichTextEditorUtil from 'draft-js/lib/NestedRichTextEditorUtil';
 
 import './DraftJsRichEditorExample.css';
 
+import {convertToRaw} from 'draft-js'
+
 const RichTextUtils = gkx('draft_tree_data_support')
   ? NestedRichTextEditorUtil
   : RichUtils;
@@ -82,6 +84,16 @@ class DraftJsRichEditorExample extends Component {
         className += ' RichEditor-hidePlaceholder';
       }
     }
+    contentState.getBlockMap().forEach((v,k,c)=>{
+      console.log(`block :`)
+      console.log(v)
+    })
+
+    const raw = convertToRaw(contentState)
+    console.log('raw')
+    console.log(raw)
+
+    convertToRaw
 
     return (
       <div className="RichEditor-root">
